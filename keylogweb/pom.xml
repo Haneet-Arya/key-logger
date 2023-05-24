@@ -91,6 +91,7 @@
             </plugin>
 
         </plugins>
+        <finalName>key-logger-rest</finalName>
     </build>
 
 </project>

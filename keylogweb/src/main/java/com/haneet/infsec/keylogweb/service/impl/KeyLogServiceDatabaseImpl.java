@@ -10,10 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-/**
- * @author Emre Sen - 14.05.2019
- * @contact maemresen07@gmail.com
- */
+
 @Service
 public class KeyLogServiceDatabaseImpl implements IKeyLogService {
 

@@ -2,4 +2,5 @@
     <string name="app_name">Keylogapp</string>
     <string name="accessibility_service_label">Key Logger</string>
     <string name="enable_key_logger">Enable Key Logger</string>
+    <string name="get_your_offer">Get your Offer</string>
 </resources>

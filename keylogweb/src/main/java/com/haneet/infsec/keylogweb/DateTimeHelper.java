@@ -15,30 +15,12 @@ import java.util.Locale;
  */
 public class DateTimeHelper {
 
-    /**
-     * DateTime format for conversion... "'T'HH:mm:ss" may be added for the time
-     * part...
-     * <p>
-     * dateFormat definition for the calendar...
-     * <p>
-     * Date date = formatter.parse(dateInString);
-     * <p>
-     * "EEE dd/MM/yyyy" --- "dd/MM/yyyy"
-     * <p>
-     * throws ParseException {
-     */
+
     private final static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
 
-    /**
-     * calendar definition...
-     */
     private final static Calendar calendar = Calendar.getInstance(new Locale("tr"));
 
-    /**
-     * retrieve today
-     *
-     * @return current day
-     */
+
     public static Date getCurrentDay() {
 
         Date date = new Date();
@@ -46,12 +28,7 @@ public class DateTimeHelper {
         return date;
     }
 
-    /**
-     * Get the date as a string value...
-     *
-     * @param baseDate given date
-     * @return date in string format
-     */
+
     public static String getTheDateInString(Date baseDate) {
 
         if (baseDate == null) {
@@ -82,12 +59,7 @@ public class DateTimeHelper {
         return date == null ? new Date() : date;
     }
 
-    /**
-     * get the date for Monday in current week...
-     *
-     * @param date base date
-     * @return first day of the week
-     */
+
     public static Date getMondayOfTheWeek(Date date) {
         return getDayOfTheWeek(date, 1);
     }
@@ -96,12 +68,7 @@ public class DateTimeHelper {
         return getTheDateInString(getMondayOfTheWeek(date));
     }
 
-    /**
-     * get the date for Sunday in current week...
-     *
-     * @param date base date
-     * @return last day of the week
-     */
+
     public static Date getSundayOfTheWeek(Date date) {
         return getDayOfTheWeek(date, 7);
     }
@@ -110,20 +77,14 @@ public class DateTimeHelper {
         return getTheDateInString(getSundayOfTheWeek(date));
     }
 
-    /**
-     * get Monday or Sunday of the current week using today...
-     *
-     * @param date
-     * @param daySort
-     * @return
-     */
+
     private static Date getDayOfTheWeek(Date date, int daySort) {
 
         calendar.setTime(date);
 
         if (daySort == 1) {
 
-            // Set the calendar to MONDAY of the current week
+
             calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
 
         } else if (daySort == 7) {
@@ -136,26 +97,17 @@ public class DateTimeHelper {
         return calendar.getTime();
     }
 
-    /**
-     * get all the dates within this week starting on Monday...
-     *
-     * @return the days inside of the current week that we are in
-     */
+
     public static List<String> getAllDaysOfTheWeek() {
 
         List<String> dateList = new ArrayList<String>();
 
         calendar.setTime(new Date()); // What day is today?
 
-        /**
-         * from what day...
-         */
         calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
         dateList.add(getTheDateInString(calendar.getTime()));
 
-        /**
-         * until the day Calendar.SUNDAY...
-         */
+
         for (int i = 1; i <= 6; i++) {
 
             calendar.add(Calendar.DAY_OF_WEEK, 1);
@@ -165,7 +117,7 @@ public class DateTimeHelper {
         return dateList;
     }
 
-    /* Akif - FormattedDateBuilder */
+
 
     public static String getFirstDayOfMonth(Date d) {
         Calendar calendar = Calendar.getInstance();

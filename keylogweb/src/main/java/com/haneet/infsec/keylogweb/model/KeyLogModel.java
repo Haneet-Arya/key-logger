@@ -2,10 +2,6 @@ package com.haneet.infsec.keylogweb.model;
 
 import java.util.Date;
 
-/**
- * @author Emre Sen - 14.05.2019
- * @contact maemresen07@gmail.com
- */
 public class KeyLogModel {
 
     private String uuid;

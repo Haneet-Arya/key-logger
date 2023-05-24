@@ -8,10 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 
-/**
- * @author Emre Sen - 14.05.2019
- * @contact maemresen07@gmail.com
- */
+
 @Entity
 public class KeyLog {
 

@@ -1,7 +1,7 @@
 server:
 
   # configures the port that Eureka Server will be running
-  port: 8080
+  port: 8082
 
 
 spring:
@@ -15,6 +15,8 @@ spring:
   h2:
     console:
       enabled: true
+      settings:
+        web-allow-others: true
   # JPA Configurations
   jpa:
     #hibernate.ddl-auto: create
