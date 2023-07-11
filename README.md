@@ -18,9 +18,9 @@
  </ol>
 
 
-##ScreenShots
+## ScreenShots
 
-#Server
+# Server
 
 
 
@@ -29,7 +29,7 @@
 
 ![Screenshot 2023-07-11 113236](https://github.com/Haneet-Arya/key-logger/assets/70570884/32efc5ab-79e2-4646-b04d-e87ad8bd87ed)
 
-#Android App
+# Android App
 
 
 
